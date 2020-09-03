@@ -1,0 +1,45 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+<title>PORTFOLIO - Marcelo Tedesco de Miranda</title>
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+
+{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <h1>AULAS</h1>
+    </div>
+
+    <section class="cards">
+
+        {% for item in items %}
+        <div class="card" id="{{item.id}}">
+            <div class="card__image-container {{ 'featured-wrapper' if item.featured }}">
+                <img src="https://img.youtube.com/vi/{{item.id}}/maxresdefault.jpg" alt="Imagem de {{item.title}}">
+                {% if item.featured %}
+                    <div class="featured">Featured</div>
+                {% endif %}
+            </div>
+            <div class="card__content">
+                <p>{{item.title}}</p>
+            </div>
+            <div class="card__info">
+                <p>{{item.duration}}</p>
+                <p class="card__price">{{item.price}}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </section>
+    
+    <div id="links-footer" class="links">
+        <a href="https://github.com/MarceloCG-bot/" target="_blank">GITHUB</a>
+        <a href="https://twitter.com/MarceloTedes" target="_blank">TWITTER</a>
+        <a href="https://www.linkedin.com/in/marcelo-tedesco-de-miranda-0308071a1/" target="_blank">LINKEDIN</a>
+    </div>
+
+    <script src="/scripts.js"></script>
+    {% endblock %}
